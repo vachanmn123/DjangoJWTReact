@@ -6,9 +6,9 @@ This is the django backend for the JWT Auth. It uses `djangorestframework`. The 
 
 ### POST `/token/`
 
-#### Request Parameters
+#### Request Body
 
-Username: Your_Username_Here
+Username: Your_Username_Here  
 Password: Your_Password_Here
 
 #### Example response
