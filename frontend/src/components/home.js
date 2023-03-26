@@ -13,6 +13,7 @@ export const Home = () => {
           const { data } = await axios.get("http://localhost:8000/home/", {
             headers: {
               "Content-Type": "application/json",
+              Authorization: `Bearer ${localStorage.getItem("access_token")}`,
             },
           });
           setMessage(data.message);
@@ -22,9 +23,15 @@ export const Home = () => {
       })();
     }
   }, []);
+  if (message === "")
+    return (
+      <div className="form-signin mt-5 text-center">
+        <h3>Not logged in</h3>
+      </div>
+    );
   return (
     <div className="form-signin mt-5 text-center">
-      <h3>Hi {message}</h3>
+      <h3>Message from server: {message}</h3>
     </div>
   );
 };
